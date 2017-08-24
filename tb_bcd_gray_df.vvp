@@ -1,0 +1,81 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0085d9d0 .scope module, "testbench" "testbench" 2 3;
+ .timescale -9 -12;
+v01ff2ed8_0 .net "f", 0 3, L_01ff34b0;  1 drivers
+v01ff2f30_0 .var "i", 0 3;
+S_00853f30 .scope module, "bcd_gray" "bcd_gray" 2 6, 3 3 0, S_0085d9d0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "unnamed"
+    .port_info 1 /OUTPUT 4 "unnamed"
+v0085bd18_0 .net *"_s10", 0 0, L_01ff30e8;  1 drivers
+v00859fd8_0 .net *"_s15", 0 0, L_01ff3140;  1 drivers
+v0085daa0_0 .net *"_s17", 0 0, L_01ff3198;  1 drivers
+v00855518_0 .net *"_s19", 0 0, L_01ff31f0;  1 drivers
+v00854000_0 .net *"_s21", 0 0, L_01ff3248;  1 drivers
+v00854058_0 .net *"_s22", 0 0, L_01ff32a0;  1 drivers
+v01ff2ab8_0 .net *"_s27", 0 0, L_01ff32f8;  1 drivers
+v01ff2b10_0 .net *"_s29", 0 0, L_01ff3350;  1 drivers
+v01ff2b68_0 .net *"_s3", 0 0, L_01ff2f88;  1 drivers
+v01ff2bc0_0 .net *"_s31", 0 0, L_01ff33a8;  1 drivers
+v01ff2c18_0 .net *"_s33", 0 0, L_01ff3400;  1 drivers
+v01ff2c70_0 .net *"_s34", 0 0, L_01ff3458;  1 drivers
+v01ff2cc8_0 .net *"_s40", 0 0, L_01ff3508;  1 drivers
+v01ff2d20_0 .net *"_s5", 0 0, L_01ff2fe0;  1 drivers
+v01ff2d78_0 .net *"_s7", 0 0, L_01ff3038;  1 drivers
+v01ff2dd0_0 .net *"_s9", 0 0, L_01ff3090;  1 drivers
+v01ff2e28_0 .net "f", 0 3, L_01ff34b0;  alias, 1 drivers
+v01ff2e80_0 .net "i", 0 3, v01ff2f30_0;  1 drivers
+L_01ff2f88 .part v01ff2f30_0, 1, 1;
+L_01ff2fe0 .part v01ff2f30_0, 0, 1;
+L_01ff3038 .reduce/nor L_01ff2fe0;
+L_01ff3090 .part v01ff2f30_0, 0, 1;
+L_01ff30e8 .functor MUXZ 1, L_01ff3090, L_01ff3038, L_01ff2f88, C4<>;
+L_01ff3140 .part v01ff2f30_0, 2, 1;
+L_01ff3198 .part v01ff2f30_0, 1, 1;
+L_01ff31f0 .reduce/nor L_01ff3198;
+L_01ff3248 .part v01ff2f30_0, 1, 1;
+L_01ff32a0 .functor MUXZ 1, L_01ff3248, L_01ff31f0, L_01ff3140, C4<>;
+L_01ff32f8 .part v01ff2f30_0, 3, 1;
+L_01ff3350 .part v01ff2f30_0, 2, 1;
+L_01ff33a8 .reduce/nor L_01ff3350;
+L_01ff3400 .part v01ff2f30_0, 2, 1;
+L_01ff3458 .functor MUXZ 1, L_01ff3400, L_01ff33a8, L_01ff32f8, C4<>;
+L_01ff34b0 .concat8 [ 1 1 1 1], L_01ff30e8, L_01ff32a0, L_01ff3458, L_01ff3508;
+L_01ff3508 .part v01ff2f30_0, 3, 1;
+    .scope S_0085d9d0;
+T_0 ;
+    %vpi_call 2 8 "$monitor", " ", $time, " i=%b, f=%b", v01ff2f30_0, v01ff2ed8_0 {0 0 0};
+    %delay 0, 0;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v01ff2f30_0, 0, 4;
+    %delay 2000, 0;
+    %pushi/vec4 8, 0, 4;
+    %store/vec4 v01ff2f30_0, 0, 4;
+    %delay 5000, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v01ff2f30_0, 0, 4;
+    %delay 10000, 0;
+    %pushi/vec4 6, 0, 4;
+    %store/vec4 v01ff2f30_0, 0, 4;
+    %delay 20000, 0;
+    %pushi/vec4 9, 0, 4;
+    %store/vec4 v01ff2f30_0, 0, 4;
+    %delay 100000, 0;
+    %vpi_call 2 14 "$finish" {0 0 0};
+    %vpi_call 2 15 "$dumpfile", "tb_bcd_gray_df.vcd" {0 0 0};
+    %vpi_call 2 16 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_bcd_gray_df.v";
+    "bcd_gray_df.v";
