@@ -1,0 +1,166 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_009ed9e0 .scope module, "testbench" "testbench" 2 3;
+ .timescale -9 -12;
+v01ffa7e8_0 .var "a", 0 2;
+v01ffa840_0 .net "f", 0 7, L_01ffacb8;  1 drivers
+S_009e54c8 .scope module, "dec" "decoder" 2 6, 3 3 0, S_009ed9e0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 3 "in"
+    .port_info 1 /OUTPUT 8 "out"
+L_01fcf658 .functor NOT 1, L_01ffa898, C4<0>, C4<0>, C4<0>;
+L_01fcf6a0 .functor NOT 1, L_01ffa8f0, C4<0>, C4<0>, C4<0>;
+L_01fcf6e8 .functor NOT 1, L_01ffa948, C4<0>, C4<0>, C4<0>;
+L_01fcf730 .functor AND 1, L_01fcf658, L_01fcf6a0, L_01fcf6e8, C4<1>;
+L_01fcf778 .functor AND 1, L_01ffa9a0, L_01fcf6a0, L_01fcf6e8, C4<1>;
+L_01fcf7c0 .functor AND 1, L_01fcf658, L_01ffa9f8, L_01fcf6e8, C4<1>;
+L_01fcf808 .functor AND 1, L_01ffaa50, L_01ffaaa8, L_01fcf6e8, C4<1>;
+L_01fcf850 .functor AND 1, L_01fcf658, L_01fcf6a0, L_01ffab00, C4<1>;
+L_01fcf898 .functor AND 1, L_01ffab58, L_01fcf6a0, L_01ffabb0, C4<1>;
+L_01fcf8e0 .functor AND 1, L_01fcf658, L_01ffac08, L_01ffac60, C4<1>;
+L_01fcf928 .functor AND 1, L_01ffad10, L_01ffad68, L_01ffadc0, C4<1>;
+v009edab0_0 .net *"_s10", 0 0, L_01fcf730;  1 drivers
+v009e5598_0 .net *"_s13", 0 0, L_01fcf778;  1 drivers
+v009e55f0_0 .net *"_s16", 0 0, L_01ffa9a0;  1 drivers
+v009e5648_0 .net *"_s18", 0 0, L_01fcf7c0;  1 drivers
+v009e3770_0 .net *"_s2", 0 0, L_01ffa898;  1 drivers
+v01ffa000_0 .net *"_s21", 0 0, L_01ffa9f8;  1 drivers
+v01ffa058_0 .net *"_s23", 0 0, L_01fcf808;  1 drivers
+v01ffa0b0_0 .net *"_s26", 0 0, L_01ffaa50;  1 drivers
+v01ffa108_0 .net *"_s28", 0 0, L_01ffaaa8;  1 drivers
+v01ffa160_0 .net *"_s30", 0 0, L_01fcf850;  1 drivers
+v01ffa1b8_0 .net *"_s33", 0 0, L_01ffab00;  1 drivers
+v01ffa210_0 .net *"_s35", 0 0, L_01fcf898;  1 drivers
+v01ffa268_0 .net *"_s38", 0 0, L_01ffab58;  1 drivers
+v01ffa2c0_0 .net *"_s40", 0 0, L_01ffabb0;  1 drivers
+v01ffa318_0 .net *"_s42", 0 0, L_01fcf8e0;  1 drivers
+v01ffa370_0 .net *"_s45", 0 0, L_01ffac08;  1 drivers
+v01ffa3c8_0 .net *"_s47", 0 0, L_01ffac60;  1 drivers
+v01ffa420_0 .net *"_s49", 0 0, L_01fcf928;  1 drivers
+v01ffa478_0 .net *"_s5", 0 0, L_01ffa8f0;  1 drivers
+v01ffa4d0_0 .net *"_s53", 0 0, L_01ffad10;  1 drivers
+v01ffa528_0 .net *"_s55", 0 0, L_01ffad68;  1 drivers
+v01ffa580_0 .net *"_s57", 0 0, L_01ffadc0;  1 drivers
+v01ffa5d8_0 .net *"_s8", 0 0, L_01ffa948;  1 drivers
+v01ffa630_0 .net "in", 0 2, v01ffa7e8_0;  1 drivers
+v01ffa688_0 .net "n1", 0 0, L_01fcf658;  1 drivers
+v01ffa6e0_0 .net "n2", 0 0, L_01fcf6a0;  1 drivers
+v01ffa738_0 .net "n3", 0 0, L_01fcf6e8;  1 drivers
+v01ffa790_0 .net "out", 0 7, L_01ffacb8;  alias, 1 drivers
+L_01ffa898 .part v01ffa7e8_0, 2, 1;
+L_01ffa8f0 .part v01ffa7e8_0, 1, 1;
+L_01ffa948 .part v01ffa7e8_0, 0, 1;
+L_01ffa9a0 .part v01ffa7e8_0, 2, 1;
+L_01ffa9f8 .part v01ffa7e8_0, 1, 1;
+L_01ffaa50 .part v01ffa7e8_0, 2, 1;
+L_01ffaaa8 .part v01ffa7e8_0, 1, 1;
+L_01ffab00 .part v01ffa7e8_0, 0, 1;
+L_01ffab58 .part v01ffa7e8_0, 2, 1;
+L_01ffabb0 .part v01ffa7e8_0, 0, 1;
+L_01ffac08 .part v01ffa7e8_0, 1, 1;
+L_01ffac60 .part v01ffa7e8_0, 0, 1;
+LS_01ffacb8_0_0 .concat8 [ 1 1 1 1], L_01fcf928, L_01fcf8e0, L_01fcf898, L_01fcf850;
+LS_01ffacb8_0_4 .concat8 [ 1 1 1 1], L_01fcf808, L_01fcf7c0, L_01fcf778, L_01fcf730;
+L_01ffacb8 .concat8 [ 4 4 0 0], LS_01ffacb8_0_0, LS_01ffacb8_0_4;
+L_01ffad10 .part v01ffa7e8_0, 2, 1;
+L_01ffad68 .part v01ffa7e8_0, 1, 1;
+L_01ffadc0 .part v01ffa7e8_0, 0, 1;
+    .scope S_009ed9e0;
+T_0 ;
+    %vpi_call 2 8 "$monitor", " ", $time, " a=%b, f=%b", v01ffa7e8_0, v01ffa840_0 {0 0 0};
+    %delay 0, 0;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %delay 2000, 0;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %delay 5000, 0;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %delay 15000, 0;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %delay 20000, 0;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v01ffa7e8_0, 4, 1;
+    %delay 100000, 0;
+    %vpi_call 2 15 "$finish" {0 0 0};
+    %vpi_call 2 16 "$dumpfile", "tb_decoder_3x8.vcd" {0 0 0};
+    %vpi_call 2 17 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_decoder_3x8.v";
+    "decoder_3x8.v";
