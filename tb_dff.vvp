@@ -1,0 +1,140 @@
+#! c:/iverilog-x86/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_003b4578 .scope module, "Testing" "Testing" 2 4;
+ .timescale -9 -12;
+L_01f4e248 .functor AND 1, v003ba2c0_0, v003ba370_0, C4<1>, C4<1>;
+v003ba268_0 .net *"_s1", 0 0, L_01f4e248;  1 drivers
+v003ba2c0_0 .var "clk", 0 0;
+v003ba318_0 .var "d", 0 0;
+v003ba370_0 .var "en", 0 0;
+v01f71c00_0 .net "q", 0 0, v003be8f0_0;  1 drivers
+v01f71c58_0 .net "q2", 0 0, v003ba210_0;  1 drivers
+v01f71cb0_0 .var "rst", 0 0;
+E_003bf1a0 .event posedge, L_01f4e248;
+S_003be770 .scope module, "dff" "dff_sync_clear" 2 8, 3 3 0, S_003b4578;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "d"
+    .port_info 1 /INPUT 1 "clearb"
+    .port_info 2 /INPUT 1 "clock"
+    .port_info 3 /OUTPUT 1 "q"
+v003b4648_0 .net "clearb", 0 0, v01f71cb0_0;  1 drivers
+v003be840_0 .net "clock", 0 0, v003ba2c0_0;  1 drivers
+v003be898_0 .net "d", 0 0, v003ba318_0;  1 drivers
+v003be8f0_0 .var "q", 0 0;
+E_003bf1c8 .event posedge, v003be840_0;
+S_003b3770 .scope module, "dff2" "dff_async_clear" 2 9, 3 15 0, S_003b4578;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "d"
+    .port_info 1 /INPUT 1 "clearb"
+    .port_info 2 /INPUT 1 "clock"
+    .port_info 3 /OUTPUT 1 "q"
+v003b3840_0 .net "clearb", 0 0, v01f71cb0_0;  alias, 1 drivers
+v003b3898_0 .net "clock", 0 0, v003ba2c0_0;  alias, 1 drivers
+v003b38f0_0 .net "d", 0 0, v003ba318_0;  alias, 1 drivers
+v003ba210_0 .var "q", 0 0;
+E_003bf1f0/0 .event negedge, v003b4648_0;
+E_003bf1f0/1 .event posedge, v003be840_0;
+E_003bf1f0 .event/or E_003bf1f0/0, E_003bf1f0/1;
+    .scope S_003be770;
+T_0 ;
+    %wait E_003bf1c8;
+    %load/vec4 v003b4648_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v003be8f0_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v003be898_0;
+    %assign/vec4 v003be8f0_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_003b3770;
+T_1 ;
+    %wait E_003bf1f0;
+    %load/vec4 v003b3840_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v003ba210_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v003b38f0_0;
+    %assign/vec4 v003ba210_0, 0;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_003b4578;
+T_2 ;
+    %wait E_003bf1a0;
+    %vpi_call 2 12 "$display", "d=%b, clk=%b, rst=%b, dff_sync_q=%b, dff_async_q=%b\012", v003ba318_0, v003ba2c0_0, v01f71cb0_0, v01f71c00_0, v01f71c58_0 {0 0 0};
+    %jmp T_2;
+    .thread T_2;
+    .scope S_003b4578;
+T_3 ;
+T_3.0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v003ba2c0_0, 0, 1;
+    %delay 5000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v003ba2c0_0, 0, 1;
+    %delay 5000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v003ba2c0_0, 0, 1;
+    %jmp T_3.0;
+    %end;
+    .thread T_3;
+    .scope S_003b4578;
+T_4 ;
+    %delay 0, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v003ba370_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v003ba318_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v01f71cb0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v003ba318_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v01f71cb0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v003ba318_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v01f71cb0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v003ba318_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v01f71cb0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v003ba318_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v01f71cb0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v003ba318_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v01f71cb0_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v003ba370_0, 0, 1;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_dff.v";
+    "./dff.v";
