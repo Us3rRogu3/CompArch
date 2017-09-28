@@ -5,9 +5,13 @@ module dff(d, clearb, clock, q);
 	output q;
 	reg q;
 
+	always @ (!clearb)
+		begin
+			q <= 1'b0;
+		end
+	
 	always @ (posedge clock)
-	begin
-		if (!clearb) q <= 1'b0;
-		else q <= d;
-	end
+		begin
+			if(!clearb) q <= d;
+		end
 endmodule
